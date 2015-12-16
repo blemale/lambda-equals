@@ -16,7 +16,7 @@ public interface LambdaEquals {
         }
         @SuppressWarnings("unchecked")
         final T other = (T) object;
-        return !stream(propertyAccessors)
-                .anyMatch(accessor -> !Objects.equals(accessor.apply(thiz), accessor.apply(other)));
+        return stream(propertyAccessors)
+                .allMatch(accessor -> Objects.equals(accessor.apply(thiz), accessor.apply(other)));
     }
 }
