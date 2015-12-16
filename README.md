@@ -37,5 +37,18 @@ class MyClass {
                 MyClass::getB,
                 MyClass::getS);
     }
+    
+    public boolean oldStyleEquals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final MyClass other = (MyClass) obj;
+        return Objects.equals(this.i, other.i)
+                && Objects.equals(this.b, other.b)
+                && Objects.equals(this.s, other.s);
+    }
 }
 ```
